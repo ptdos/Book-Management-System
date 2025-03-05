@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    {% if form.instance.pk %}
+        Update
+    {% else %}
+        Add
+    {% endif %}
+    Book
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center">
+        {% if form.instance.pk %}
+            Update Book
+        {% else %}
+            Add New Book
+        {% endif %}
+    </h1>
+
+    <div class="card shadow p-4">
+        <form method="post" novalidate>
+            {% csrf_token %}
+            
+            {% if form.errors %}
+                <div class="alert alert-danger">
+                    <strong>Please correct the errors below.</strong>
+                </div>
+            {% endif %}
+
+            {{ form|crispy }}
+
+            <div class="text-center mt-3">
+                <button type="submit" class="btn btn-success">
+                    {% if form.instance.pk %} Update {% else %} Save {% endif %}
+                </button>
+                <a href="{% url 'homepage' %}" class="btn btn-secondary">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

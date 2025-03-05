@@ -6,12 +6,12 @@ The objective of this project is to build a Django-based web application for man
 
 Requirements:
 
--Add new books to the library.
+- Add new books to the library.
 
--View all books and their details.
+- View all books and their details.
 
--Edit  books.
+- Edit  books.
 
--Delete books
+- Delete books
 
--Django Admin Pannel Customization 
+- Django Admin Pannel Customization 
